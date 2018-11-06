@@ -1,0 +1,16 @@
+div#content_home {
+    background: rgba(5, 1, 1, 0.63)!important;
+    position: absolute;
+    top: 160px;
+    left: 0px;
+    right:0px;
+    margin:0 auto;
+    
+}
+
+div#homeimg {
+    
+    padding: 0px 0 0 0;
+    text-align: center;
+    margin:0 auto;
+}

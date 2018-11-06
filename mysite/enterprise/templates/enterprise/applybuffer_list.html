@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}request_ls.html{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>Request List</h1>
+    <ul>
+        {% for obj in object_list %}
+            <li>{{ obj.individual_id }} - {{ obj.ent_id }} - {{ obj.request_date }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

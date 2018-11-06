@@ -1,0 +1,146 @@
+body {
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    margin:0 auto;
+}
+
+/* PAGE STRUCTURE */
+
+div#logo {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 44%;
+    top: 20px;
+    height: 70px;
+    background-color: black;
+    
+}
+div#header {
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    height: 65px;
+    width: 100%;
+    
+    
+    display: table;
+    background: black;
+}
+
+div#menu {
+    position: absolute;
+    top: 120px;
+    height: 40px;
+    width: 34%;
+    display: table; 
+    table-layout: table;
+    background: black;
+    font-size: 12px;
+    
+}
+
+div#content {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    color: white!important;
+    
+    
+    right: 50px;
+}
+
+div#footer {
+    position: absolute;
+    top: 1000px;
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
+    height: 30px;
+    border-top:1px solid #ccc;
+}
+
+/* HEADER */
+/* .maintitle {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+} */
+
+.welcome {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    padding-right: 20px;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.welcome a:link, .welcome a:visited {
+    color: white;
+}
+
+/* MENU */
+div#menu a:link, div#menu a:visited {
+    color: white;
+}
+
+div#menu > li {
+    display: table-cell;
+    vertical-align: middle;
+    /* border: 2px solid #bbb; */
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* pulldown menu
+div#menu li  ul {
+    display:none;
+    position:absolute;
+    margin: 0;
+    padding:10px 10px 5px 10px;
+    list-style:none;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    background: black;
+    z-index: 1;
+} */
+
+div#menu li:hover ul {
+    display:block;
+}
+
+/* LINK */
+a:link, a:visited {
+    color: rgb(56, 120, 184);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE */
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    line-height: 18px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    padding: 5px 15px;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+table.change-list, table.change-list th, table.change-list td {
+    border: 1px solid #ccc;
+}
