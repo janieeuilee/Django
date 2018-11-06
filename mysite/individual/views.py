@@ -27,10 +27,6 @@ class   IndividualCreateView(LoginRequiredMixin, CreateView):
         form.instance.owner = self.request.user
         return super(IndividualCreateView, self).form_valid(form)
 
-
-   
-
-
 # post_detail.html
 class PostDV(DetailView): # select * from where blog_post where slug=?
     model = Post
@@ -98,11 +94,3 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 #     model = Post
 #     success_url = reverse_lazy('blog:index')
 
-class IndividualCreateView(LoginRequiredMixin, CreateView):
-    model = Individual
-    fields = ['user_name', 'enterprise_name', 'additional']
-    success_url = reverse_lazy('individual:back')
-    def form_valid(self, form):
-        print(form)
-        form.instance.owner = self.request.user
-        return super(IndividualCreateView, self).form_valid(form)
