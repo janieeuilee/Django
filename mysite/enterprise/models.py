@@ -6,7 +6,7 @@ from django.utils.text import slugify
 # Create your models here.
 class ApplyBuffer(models.Model):
     request_date = models.DateTimeField('Request Date', auto_now_add=True)
-    indi_id = models.ForeignKey(User, related_name='indi_id', null=False, on_delete=models.CASCADE)
+    indi_id = models.ForeignKey(User, related_name='individual_id', null=False, on_delete=models.CASCADE)
     ent_id = models.ForeignKey(User, related_name='enterprise_id', null=False, on_delete=models.CASCADE)
 
 # class InputForm(models.Model):

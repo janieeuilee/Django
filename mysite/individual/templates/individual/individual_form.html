@@ -7,35 +7,32 @@
 
     <h1>Individual Request - {{user}}</h1>
 
-    <form action="." method="post">{% csrf_token%}
+    <form action="/individual/request_add" method="post">{% csrf_token%}
 
     {% if form.errors %}
     <p class= "errornote">Wrong! Please correct the error(s) below.</p>
     {% endif %}
 
     <p>This is page that request your profile document for proving</p>
-    <br/><br/>
 
     <fieldset class= "aligned">
-            <br/>
 
         <div class="form-row">
             {{ form.user_name.label_tag }} {{ form.user_name }}
-        </div><br/>
+        </div>
         <div class="form-row">
             {{ form.enterprise_name.label_tag }} {{ form.enterprise_name}}
-        </div><br/>
+        </div>
         <div class="form-row">
             {{ form.additional.label_tag}} {{ form.additional }}
-        </div><br/><br/>
+        </div>
 
     </fieldset>
-    <br/>
 
     <div class="submit-row">
         <input type = "submit" value="Submit"/>
     </div>
-    
+    </form>
 </div>
 
 {% endblock %}

@@ -28,7 +28,7 @@ urlpatterns = [
     path('accounts/register/', UserCreateView.as_view(), name='register'),
     path('accounts/register/done', UserCreateDoneTV.as_view(), name='register_done'),
 
-    path('ent/', include('enterprise.urls', namespace='ent')),
+    # path('ent/', include('enterprise.urls', namespace='ent')),
     
     path('individual/', include('individual.urls', namespace='individual')),
 ]

@@ -1,7 +1,10 @@
+
 from django.conf.urls import url
 from django.urls import path
 from individual.views import *
-from individual.views import IndividualCreateView
+from mysite.views import HomeView
+
+
 
 app_name = 'individual'
 
@@ -33,8 +36,12 @@ urlpatterns = [
     # path('post/today/', PostTAV.as_view(), name='post_today_archive'),
 
     # Example: /search/
-    path('post/search/', SearchFormView.as_view(), name='search'),
+    
    
+    path('back', HomeView.as_view(), name='back'),
+    path('back/', HomeView.as_view(), name='back'),
+    path('request_add', IndividualCreateView.as_view(), name='request_add'),
+
 
     # path('add/', PostCreateView.as_view(), name='add'),
     # path('change/', PostChangeLV.as_view(), name='change'),

@@ -4,14 +4,13 @@ from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthA
 from django.views.generic.dates import DayArchiveView, TodayArchiveView
 
 from individual.models import Post, Individual
-
-from individual.forms import PostSearchForm
 from django.db.models import Q
 from django.views.generic.edit import FormView, CreateView
-from django.views.generic.edit import FormView
 
 from mysite.views import LoginRequiredMixin
 from django.urls import reverse_lazy
+from individual.models import Individual
+
 
 # Create your views here.
 class PostLV(ListView):
@@ -57,22 +56,22 @@ class PostTAV(TodayArchiveView):
     model = Post
     date_field = 'modify_date'    
 
-class SearchFormView(FormView):
-    form_class = PostSearchForm # forms.py에 생성
-    template_name = "individual/post_search.html"
+# class SearchFormView(FormView):
+#     form_class = PostSearchForm # forms.py에 생성
+#     template_name = "individual/post_search.html"
     
-    def form_valid(self, form): # self.request
-        schWord = '%s' % self.request.POST['search_word']
+#     def form_valid(self, form): # self.request
+#         schWord = '%s' % self.request.POST['search_word']
         
-        post_list = Post.objects.filter(Q(title__icontains=schWord) | 
-        Q(description__icontains=schWord) | Q(content__icontains=schWord)).distinct()
+#         post_list = Post.objects.filter(Q(title__icontains=schWord) | 
+#         Q(description__icontains=schWord) | Q(content__icontains=schWord)).distinct()
         
-        context = {}
-        context['form'] = form
-        context['search_keyword'] = schWord
-        context['search_list'] = post_list
+#         context = {}
+#         context['form'] = form
+#         context['search_keyword'] = schWord
+#         context['search_list'] = post_list
 
-        return render(self.request, self.template_name, context)
+#         return render(self.request, self.template_name, context)
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -98,3 +97,12 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 # class PostDeleteView(LoginRequiredMixin, DeleteView):
 #     model = Post
 #     success_url = reverse_lazy('blog:index')
+
+class IndividualCreateView(LoginRequiredMixin, CreateView):
+    model = Individual
+    fields = ['user_name', 'enterprise_name', 'additional']
+    success_url = reverse_lazy('individual:back')
+    def form_valid(self, form):
+        print(form)
+        form.instance.owner = self.request.user
+        return super(IndividualCreateView, self).form_valid(form)
